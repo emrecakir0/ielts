@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IELTS Nightly Flashcards</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header & Top Controls -->
+        <header>
+            <h1 class="logo">IELTS <span>Master</span></h1>
+            <div class="controls">
+                <select id="sublist-select">
+                    <option value="all">Tüm Kelimeler (1-10)</option>
+                    <option value="1">Sublist 1</option>
+                    <option value="2">Sublist 2</option>
+                    <option value="3">Sublist 3</option>
+                    <option value="4">Sublist 4</option>
+                    <option value="5">Sublist 5</option>
+                    <option value="6">Sublist 6</option>
+                    <option value="7">Sublist 7</option>
+                    <option value="8">Sublist 8</option>
+                    <option value="9">Sublist 9</option>
+                    <option value="10">Sublist 10</option>
+                </select>
+                <button id="reset-progress" title="Öğrenildi hafızasını sıfırlar">Sıfırla</button>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-target="flashcard-view">Öğrenme</button>
+                <button class="tab-btn" data-target="quiz-view">Quiz Modu</button>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+            </div>
+            <p class="progress-text" id="progress-text">0 / 0 Öğrenildi</p>
+        </header>
+
+        <!-- Flashcard Öğrenme Arayüzü -->
+        <main id="flashcard-view" class="view-section active">
+            <div class="scene">
+                <div class="card" id="flashcard">
+                    <!-- Kart Ön Yüzü -->
+                    <div class="card-face card-front">
+                        <span class="tap-hint">Çevirmek için Dokun</span>
+                        <h2 id="card-word">Loading...</h2>
+                    </div>
+                    <!-- Kart Arka Yüzü -->
+                    <div class="card-face card-back">
+                        <h2 id="card-word-back">Word</h2>
+                        
+                        <div class="meaning-group">
+                            <span class="badge in">EN Definition</span>
+                            <p id="card-en">...</p>
+                        </div>
+
+                        <div class="meaning-group">
+                            <span class="badge tr">Türkçe</span>
+                            <p id="card-tr">...</p>
+                        </div>
+                        
+                        <div class="meaning-group">
+                            <span class="badge sy">Synonyms</span>
+                            <p id="card-syn">...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- "Biliyorum / Tekrar Et" Butonları -->
+            <div class="action-buttons">
+                <button class="btn btn-danger" id="btn-again">
+                    <i>↺</i> Tekrar Et 
+                </button>
+                <button class="btn btn-success" id="btn-know">
+                    <i>✓</i> Öğrendim
+                </button>
+            </div>
+        </main>
+
+        <!-- Sınav (Quiz) Arayüzü -->
+        <main id="quiz-view" class="view-section">
+            <div class="quiz-container">
+                <div class="quiz-question" id="quiz-question">
+                    ...
+                </div>
+                <!-- Şıklar -->
+                <div class="quiz-options" id="quiz-options">
+                    <!-- Dinamik Butonlar Buraya Gelecek -->
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback"></div>
+                <button id="btn-next-quiz" class="btn btn-primary" style="margin-top: 15px; display: none;">Sonraki Soru ➔</button>
+            </div>
+        </main>
+
+    </div>
+    
+    <!-- JS Dosyaları -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
